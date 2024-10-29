@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Sender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SMS Sender from Excel</h1>
+        
+        <p class="phone-number">Send SMS to: <strong>7718955555</strong></p> <!-- Displaying Phone Number -->
+        
+        <div class="file-upload-container">
+            <label for="fileInput" class="custom-file-upload">
+                Choose File
+            </label>
+            <input type="file" id="fileInput" accept=".xlsx, .xls" />
+            <button id="uploadButton" style="display:none;" onclick="uploadFile()">Upload File</button> <!-- Upload Button -->
+        </div>
+        
+        <div class="button-container"> <!-- Added container for centering -->
+            <button id="startButton" style="display:none;" onclick="startProcess()">Start Processing SMS</button>
+        
+        </div>
+        
+        <div id="notification" class="notification"></div>
+        
+        <table id="recordTable">
+            <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="recordTableBody"></tbody>
+        </table>
+
+        <button id="downloadProcessedBtn" style="display:none;" onclick="exportProcessedData()">Download Processed Data</button>
+        <button id="startOverButton" style="display:none;">Start Over</button>
+
+        <!-- Popup for message confirmation -->
+        <div id="messagePopup" class="popup">
+            <div class="popup-content">
+                <h2 id="popupMessage"></h2>
+                <p id="recordIndex"></p>
+                <p id="popupMessageBody"></p>
+                <div class="popup-buttons">
+                    <button id="successBtn">Success</button>
+                    <button id="failedBtn">Failed</button>
+                    <button id="skipBtn">Skip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
